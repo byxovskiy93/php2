@@ -2,8 +2,8 @@
 //Объявляем общий класс продукт
 class Product {
 
-    protected $price;
-    protected $name;
+    private $price;
+    private $name;
 
     function __construct($name,$price){
         $this->name = $name;
@@ -22,11 +22,11 @@ class Product {
 //Объявляем класс монитор и расширяем родителя
 class Monitor extends Product {
 
-    protected $diagonal;
-    protected $maximumResolution;
-    protected $pixelResponseTime;
-    protected $frequency;
-    protected $videoConnectors;
+    private $diagonal;
+    private $maximumResolution;
+    private $pixelResponseTime;
+    private $frequency;
+    private $videoConnectors;
 
     public function __construct($name,$price,$diagonal,$maximumResolution,$pixelResponseTime,$frequency,$videoConnectors){
         parent::__construct($name, $price);
