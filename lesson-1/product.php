@@ -1,6 +1,6 @@
 <?php
 //Объявляем общий класс продукт
-class product {
+class Product {
 
     protected $price;
     protected $name;
@@ -20,7 +20,7 @@ class product {
 
 }
 //Объявляем класс монитор и расширяем родителя
-class monitor extends product {
+class Monitor extends Product {
 
     protected $diagonal;
     protected $maximumResolution;
@@ -59,7 +59,7 @@ class monitor extends product {
 
 }
 
-$monitorExample = new monitor('Монитор Acer KA190HQb',4200,'18.5','1366x768','5 мс','60 Гц','VGA (D-sub)');
+$monitorExample = new Monitor('Монитор Acer KA190HQb',4200,'18.5','1366x768','5 мс','60 Гц','VGA (D-sub)');
 echo $monitorExample->getName().PHP_EOL;
 echo $monitorExample->getPrice().PHP_EOL;
 echo $monitorExample->getDiagonal().PHP_EOL;
