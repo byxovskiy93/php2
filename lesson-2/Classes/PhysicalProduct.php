@@ -2,7 +2,7 @@
 
 namespace Classes;
 
-class PhysicalProduct extends AbstractProduct{
+class PhysicalProduct extends SoftProduct {
 
     private $count;
     const PRICE = 300;
@@ -18,10 +18,6 @@ class PhysicalProduct extends AbstractProduct{
 
     function getSum(){
       return self::PRICE * $this->count;
-    }
-
-    function getCount(){
-        return $this->count;
     }
 
     function showSum(){
