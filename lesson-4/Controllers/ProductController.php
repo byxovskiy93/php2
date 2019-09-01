@@ -17,7 +17,7 @@ class ProductController extends IndexController {
     }
 
     public function index(){
-        $products = $this->shop_model->getLimitProduct(9);
+        $products = $this->shop_model->getLimitProduct(25);
         $this->vars['content'] = $this->twig->render('shopContent.tpl',['products' => $products]);
         return $this->renderOutput();
     }
@@ -29,7 +29,7 @@ class ProductController extends IndexController {
     }
 
     public function pagination($nextPage){
-        $products = $this->shop_model->getPaginationProduct($nextPage,9);
+        $products = $this->shop_model->getPaginationProduct($nextPage,25);
         $res = $this->twig->render('ajax/product.tpl',['products' => $products]);
         $json = ['error' => false,'html' => $res];
         echo json_encode($json);

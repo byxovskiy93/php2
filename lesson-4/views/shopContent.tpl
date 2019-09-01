@@ -26,7 +26,7 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-12">
-                <a class="btn btn-primary btn-lg" id="load-shop" data-load="9">Показать еще</a>
+                <a class="btn btn-primary btn-lg" id="load-shop" data-load="25">Показать еще</a>
             </div>
         </div>
     </div>
