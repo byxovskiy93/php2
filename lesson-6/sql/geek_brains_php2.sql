@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Сен 08 2019 г., 21:04
+-- Время создания: Сен 11 2019 г., 22:22
 -- Версия сервера: 5.7.25
 -- Версия PHP: 7.3.2
 
@@ -56,6 +56,59 @@ INSERT INTO `gallery` (`id`, `name`, `url_min_images`, `url_max_images`) VALUES
 (14, 'Image Fourteen', 'img/tm-img-14.jpg', 'img/tm-img-14-tn.jpg'),
 (15, 'Image Fifteen', 'img/tm-img-15.jpg', 'img/tm-img-15-tn.jpg'),
 (16, 'Image Sixteen', 'img/tm-img-16.jpg', 'img/tm-img-16-tn.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `date_create` datetime NOT NULL,
+  `date_update` datetime DEFAULT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`id`, `userId`, `address`, `date_create`, `date_update`, `status`) VALUES
+(74, 11, 'test', '2019-09-11 06:40:13', NULL, 2),
+(75, 11, 'test', '2019-09-11 10:15:27', NULL, 2),
+(76, 11, 'test test 2', '2019-09-11 10:15:43', NULL, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `orders_products`
+--
+
+CREATE TABLE `orders_products` (
+  `id` int(11) NOT NULL,
+  `orderId` int(11) NOT NULL,
+  `productId` int(11) NOT NULL,
+  `price` decimal(11,2) NOT NULL,
+  `amount` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `orders_products`
+--
+
+INSERT INTO `orders_products` (`id`, `orderId`, `productId`, `price`, `amount`) VALUES
+(67, 74, 1, '101.00', 1),
+(68, 74, 2, '102.00', 1),
+(69, 74, 3, '103.00', 2),
+(70, 74, 5, '105.00', 1),
+(71, 75, 1, '101.00', 1),
+(72, 75, 2, '102.00', 1),
+(73, 75, 3, '103.00', 1),
+(74, 76, 1, '101.00', 2),
+(75, 76, 2, '102.00', 1);
 
 -- --------------------------------------------------------
 
@@ -5111,7 +5164,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `login`, `password`, `role`) VALUES
 (9, 'Stone', 'Stone', '$2y$10$TnI/P1VNdGVXLGd7cFNNMeDrDkao1AfH4ZQZaa6tKZKpl.BleVzPC', 1),
-(10, 'Stone2', 'Stone2', '$2y$10$TnI/P1VNdGVXLGd7cFNNMejM3hotUnM.wbHHMNt1Sl9C4Qefsc7am', 1);
+(11, 'Client', 'Client', '$2y$10$TnI/P1VNdGVXLGd7cFNNMekAI08iZheh9nZPOyZXNvXkX2.8tVwAG', 2);
 
 --
 -- Индексы сохранённых таблиц
@@ -5121,6 +5174,18 @@ INSERT INTO `users` (`id`, `name`, `login`, `password`, `role`) VALUES
 -- Индексы таблицы `gallery`
 --
 ALTER TABLE `gallery`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `orders_products`
+--
+ALTER TABLE `orders_products`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -5146,6 +5211,18 @@ ALTER TABLE `gallery`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
+-- AUTO_INCREMENT для таблицы `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+
+--
+-- AUTO_INCREMENT для таблицы `orders_products`
+--
+ALTER TABLE `orders_products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+
+--
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
@@ -5155,7 +5232,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
