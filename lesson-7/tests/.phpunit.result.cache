@@ -1,0 +1,1 @@
+C:30:"PHPUnit\Runner\TestResultCache":298:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:5:{s:34:"GalleryModelTest::testGetAllImages";d:0.011;s:34:"GalleryModelTest::testGetOneImages";d:0.001;s:35:"ProductModelTest::testGetAllProduct";d:0.03;s:37:"ProductModelTest::testGetLimitProduct";d:0.001;s:35:"ProductModelTest::testGetOneProduct";d:0.001;}}}
